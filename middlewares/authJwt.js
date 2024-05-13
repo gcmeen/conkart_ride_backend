@@ -3,7 +3,7 @@ const config = require("../config/config.js");
 const UserModel = require("../models/user.model.js");
 
 const verifyToken = (req, res, next) => {
-  let token = req.session.token;
+  let token = req.session.token || req.headers.authorization;
 
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });

@@ -70,7 +70,8 @@ exports.signin = async (req, res, next) => {
       mobile: user.mobile,
       first_name: user.first_name,
       last_name: user.last_name,
-      status: user.status
+      status: user.status,
+      token:token
     });
 
   } catch (err) {
