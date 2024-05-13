@@ -81,8 +81,8 @@ exports.signin = async (req, res, next) => {
 
 exports.signout = async (req, res, next) => {
   try {
-    req.session = null;
     await UserModel.findByIdAndUpdate(req.user._id, { status: "offline" });
+    req.session = null;
     return res.status(200).json({ message: messageConstants.signOut });
   } catch (err) {
     return next(err);
