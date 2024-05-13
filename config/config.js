@@ -2,25 +2,25 @@ require('dotenv').config();
 
 const config = {
   development: {
-    jwtSecret: 'conkart-secret-key',
-    corsAllowOrigins: ['http://localhost:8081'],
+    jwtSecret: process.env.JWT_SECERT,
+    corsAllowOrigins: process.env.CORS_ORIGINS,
     port: process.env.PORT || 8080,
-    dbUrl: 'mongodb+srv://cdgodhani:6C2MVa3JkzQlwEaY@cluster0.fi4ftpg.mongodb.net/conkart_task',
-    cookieSessionSecret: 'cookie-secret-key',
+    dbUrl: process.env.DBURL,
+    cookieSessionSecret: process.env.COOKER_SECRET,
   },
   local: {
-    jwtSecret: 'conkart-secret-key',
-    corsAllowOrigins: ['http://localhost:8081'],
+    jwtSecret: process.env.JWT_SECERT,
+    corsAllowOrigins: process.env.CORS_ORIGINS,
     port: process.env.PORT || 8080,
-    dbUrl: 'mongodb+srv://cdgodhani:6C2MVa3JkzQlwEaY@cluster0.fi4ftpg.mongodb.net/conkart_task',
-    cookieSessionSecret: 'cookie-secret-key',
+    dbUrl: process.env.DBURL,
+    cookieSessionSecret: process.env.COOKER_SECRET,
   },
   production: {
-    jwtSecret: 'conkart-secret-key',
-    corsAllowOrigins: ['http://localhost:8081'],
+    jwtSecret: process.env.JWT_SECERT,
+    corsAllowOrigins: process.env.CORS_ORIGINS,
     port: process.env.PORT || 8080,
-    dbUrl: 'mongodb+srv://cdgodhani:6C2MVa3JkzQlwEaY@cluster0.fi4ftpg.mongodb.net/conkart_task',
-    cookieSessionSecret: 'cookie-secret-key',
+    dbUrl: process.env.DBURL,
+    cookieSessionSecret: process.env.COOKER_SECRET,
   },
 };
 
