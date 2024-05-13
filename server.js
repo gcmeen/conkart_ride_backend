@@ -12,14 +12,14 @@ const db = require("./lib/db.connection");
 const CronJob = require('./cron_jobs/index')
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 /* for Angular Client (withCredentials) */
-app.use(
-  cors({
-    credentials: true,
-    origin: '*',
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: config.corsAllowOrigins,
+//   })
+// );
 
 // parse requests of content-type - application/json
 app.use(express.json());
