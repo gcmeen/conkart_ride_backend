@@ -82,7 +82,7 @@ exports.signin = async (req, res, next) => {
 exports.signout = async (req, res, next) => {
   try {
     req.session = null;
-    return res.status(200).json({ message: messageConstants.signOut });
+    return res.status(400).send({ message: messageConstants.signOut });
   } catch (err) {
     return next(err);
   }
