@@ -39,7 +39,7 @@ exports.signup = async (req, res, next) => {
 exports.signin = async (req, res, next) => {
   const { username, password } = req.body
   try {
-    const user = await UserModel.findOne({ username }).exec();
+    let user = await UserModel.findOne({ username }).exec();
     if (!user) return res.status(401).send({ message: messageConstants.userNotFound });
 
     const passwordIsValid = bcrypt.compareSync(
@@ -60,7 +60,7 @@ exports.signin = async (req, res, next) => {
         expiresIn: 86400, // 24 hours
       });
 
-    await UserModel.findByIdAndUpdate(user._id, { status: "online" })
+    user = await UserModel.findByIdAndUpdate(user._id, { status: "online",lastActiveTime:new Date() }, { new: true }).lean();
     req.session.token = token;
 
     return res.status(200).json({
@@ -71,7 +71,7 @@ exports.signin = async (req, res, next) => {
       first_name: user.first_name,
       last_name: user.last_name,
       status: user.status,
-      token:token
+      token: token
     });
 
   } catch (err) {

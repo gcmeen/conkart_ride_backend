@@ -6,7 +6,7 @@ const NotificationModel = require('../models/notification.model');
 exports.updateUserStatus = async () => {
     try {
         let date = new Date();
-        date.setMinutes(new Date().getMinutes() - 30);
+        date.setMinutes(new Date().getHours() - 1);
 
         const filter = {
             lastActiveTime: { $lte: date },
